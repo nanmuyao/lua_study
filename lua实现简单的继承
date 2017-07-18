@@ -1,0 +1,22 @@
+--lua 实现简单的继承
+local base = {}
+base.del = function(b)
+		print("base del fuck")
+		print(b[2])
+	end
+
+local b = 
+{
+	1,
+	2,
+}
+
+setmetatable(b,{__index = base})
+
+print("123")
+b:del(b)
+
+--输出
+123
+base del fuck
+2
