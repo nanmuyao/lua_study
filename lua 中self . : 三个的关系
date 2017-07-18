@@ -1,0 +1,24 @@
+--lua 中self . : 三个的关系
+Account = {balance = 0,
+			withdraw = function(self,v)
+				self.balance = self.balance - 100
+				print("11111111 self.balance",self.balance)
+			end
+			}
+
+function Account:deposit( v )
+	self.balance = self.balance  + v
+	print("deposit self.balance",self.balance)
+end
+
+--lua: /usercode/file.lua:9: attempt to index local 'self' (a number value)
+--stack traceback:
+--	/usercode/file.lua:9: in function 'deposit'
+--	/usercode/file.lua:13: in main chunk
+--	[C]: in ?
+--Account.deposit(200) --error
+
+Account.deposit(Account,200) --right deposit self.balance	200
+Account:withdraw(100) --11111111 self.balance	100
+
+总结 :相当于默认向调用函数传递了一个self参数
