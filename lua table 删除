@@ -1,0 +1,35 @@
+local t = {
+1,2,3
+}
+
+table.remove(t,1)
+print(#t) --2
+
+print(t[1])
+print(t[2])
+print(t[3])
+print("aaa")
+
+2
+2
+3
+nil
+aaa
+总结：调用remove后table中第一个元素被删除其他元素向前移动，table中的元素还剩 t[1] = 2 t[2] = 3,
+
+--lua table 中元素的连续删除
+local t = {
+1,2,3,2,4,
+}
+
+print("###t count",#t)
+for i = #t , 1, -1 do
+	if(t[i] == 2) then
+		table.remove(t,i)
+	end
+end
+
+print("t count",#t)
+for i = #t , 1, -1 do
+	print(t[i])
+end
