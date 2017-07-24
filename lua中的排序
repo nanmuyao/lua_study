@@ -1,0 +1,40 @@
+-- your code goes here
+print("lua")
+
+local t = {2,3,1,4,5}
+
+table.sort(t, function(a,b)
+	if(a>b) then
+		return true	
+	end
+end)
+
+for i,v in pairs(t) do
+	print(i,v)	
+end
+
+
+local t = {"a","f","b","c","d"}
+
+table.sort(t, function(a,b)
+	if(a>b) then
+		return true	
+	end
+end)
+
+for i,v in pairs(t) do
+	print(i,v)	
+end
+
+-- 1	5
+-- 2	4
+-- 3	3
+-- 4	2
+-- 5	1
+-- 1	f
+-- 2	d
+-- 3	c
+-- 4	b
+-- 5	a
+
+总结：如果是a>b 那么是从大到小排序
